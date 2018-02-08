@@ -1,4 +1,7 @@
-var myObj = {"key": 1, "secondKey": 35};
+var myObj = {
+                "key": 1, 
+                "secondKey": {"key": "value"}
+            };
 
 myObj.anything = "value";
 
