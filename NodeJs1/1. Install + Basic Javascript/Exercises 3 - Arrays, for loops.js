@@ -6,12 +6,20 @@
 var letters = ["a","b","c"];
 // show b in the console 
 
+//console.log(letters[1]);
+
 //--------------------------------------
 //Exercise 2 - Array Positioning
 
 var friends = [];
 
 // What a lonely array. Add at least 3 friend objects to it.  
+
+friends.push("Nikolaj");
+friends.push("Alex");
+friends.push("Andrea");
+
+//console.log(friends);
 
 //--------------------------------------
 //Exercise 3 - Get the index of first occurance of that value. 
@@ -21,6 +29,9 @@ var significantMathNumbers = [0, 2.718, 3.14159, 1729]
 // You want to programmatically find where the number 1729 is in the array.
 // programmatically means that no finger counting allowed. There is a method for this (finding index based of value). 
 
+var value = significantMathNumbers.indexOf(1729);
+
+//console.log(value);
 
 //--------------------------------------
 //Exercise 4 - Inserting elements
@@ -29,12 +40,8 @@ var diet = ["tomato", "cucumber", "rocolla", "kale"]
 
 // You are a programmer. In one line (one statement) insert hamburger, soda and pizza between the elements rocolla and kale
 
-//--------------------------------------
-// Solution: 
-        // index, howmany,
-diet.splice(3, 0, "hamburger", "soda", "pizza");
+diet.splice(3, 0, "hambrgers", "soda", "pizza")
 
-// a.push.apply(diet, "hamburger", "soda", "pizza")  // only pushes to the end
 
 //--------------------------------------
 //Exercise 5 - Remove element
@@ -44,17 +51,24 @@ diet.splice(3, 0, "hamburger", "soda", "pizza");
 
 //--------------------------------------
 
+// var indexOfKale = diet.indexOf("kale");
 
+// diet.splice(indexOfKale, 1);
 
+diet.pop();
+
+//console.log(diet);
 
 //--------------------------------------
 //Exercise 6 - Copy array
 
 // You really like your daily diet from last exercise. Copy it to a new array called dinnerTray so you can give it to a friend.  
 
+var friendsDiet = diet.slice();
+
 //--------------------------------------
 
- array.slice(start, end)  // start and end are optional
+ //array.slice(start, end)  // start and end are optional
 
 //--------------------------------------
 // Exercise 7 - For loop
@@ -62,6 +76,10 @@ diet.splice(3, 0, "hamburger", "soda", "pizza");
 var letters = ["a","b","c", "d", "e", "f", "g", "h"];
 
 // log every second char in the array starting from b
+
+for(var i = 1;i<=letters.length;i+=2){
+    //console.log(letters[i]);
+}
 
 //--------------------------------------
 //Exercise 8 - For loop and if statement
@@ -72,5 +90,13 @@ var discardedNumbers = [];
 
 // log the element if the number is above 6 or below 0
 // else push them to the array discardedNumbers
+
+for (var i = 0; i < numbers.length; i++) {
+    if (numbers[i] > 6 || numbers[i] < 0) {
+        console.log(numbers[i]);
+    } else {
+        discardedNumbers.push(numbers[i]);
+    }
+}
 
 //--------------------------------------
