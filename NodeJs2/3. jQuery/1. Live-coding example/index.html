@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Testing jQuery</title>
+</head>
+<body>
+    <h1 id="title">Title</h1>
+    <div class="wrapper">
+        <p>Does this work?</p>
+    </div>
+
+    <p>Some free roaming text.</p>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+        $("#title").css("background-color", "blue");
+        $(".wrapper p").text("New fancy text");
+    </script>
+</body>
+</html>
