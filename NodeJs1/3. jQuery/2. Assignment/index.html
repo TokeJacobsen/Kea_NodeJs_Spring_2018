@@ -13,6 +13,22 @@
 		ul {
 			list-style-position: inside;
 		}
+		.first-list {
+			text-align: center;  
+		}
+
+		#first-list {
+			display: inline-block;
+		}
+
+		.second-list {
+			display: inline-block;   
+		}
+
+		.button-group {
+			display: flex;
+			justify-content: flex-end;
+		}
 	</style>
 </head>
 <body>
@@ -59,7 +75,7 @@
 	<script>
 
 		$(document).ready(function() {
-			$("body").css("text-align", "center");
+			//$("body").css("text-align", "center");
 			$("#title").text("New title");
 			$(".subtitle-box").css("background-color", "#f7ffe6");
 			//$(".temp").css("display", "none");
@@ -77,6 +93,37 @@
 			$(".second-list").children().css("font-style", "italic");
 			$(".second-list > span").css("font-size", "0.5em");
 		});
+
+		$(document).ready(function() {
+			$(".unused-box > label").remove();	
+			$(".unused-box").append("<p>Second Sentence</p>");
+			$(".unused-box").prepend("<p>First Sentence</p>");
+			$(".unused-box").attr("class", "used-box");
+			$(".used-box").click(function() {
+				$(this).toggleClass("used-boxed-clicked");
+			});
+			// $(".used-box").event("click", function() {				
+			// });
+		})
+
+		$(document).ready(function() {
+			$("#submit-button").mouseenter(function() {
+				$(this).text("You're ready to click.")
+			});
+			$("#submit-button").mouseleave(function() {
+				$(this).text("Click");
+			});
+			var reasonCounter = 4; 
+			$("#submit-button").click(function() {
+				var reasonToAdd = $("<li>Reason " + reasonCounter + " </li>")
+				$("#first-list").append(reasonToAdd);
+				reasonCounter++;
+			});
+			$("#submit-button").click(function() {
+				console.log($(this).parent());
+			});
+		})
+
 	</script>
 <!-- Assignment
 Hints are Base64 encoded. 
