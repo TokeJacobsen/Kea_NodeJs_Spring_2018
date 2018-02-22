@@ -13,6 +13,23 @@
 		ul {
 			list-style-position: inside;
 		}
+		#title {
+			display: flex;
+			justify-content: center;
+		}
+
+		#first-list {
+			display: inline-block;
+		}
+
+		.second-list {
+			display: inline-block;
+		}
+
+		.button-group {
+			display: flex;
+			justify-content: flex-end;
+		}
 	</style>
 </head>
 <body>
@@ -59,7 +76,7 @@
 	<script>
 
 		$(document).ready(function() {
-			$("body").css("text-align", "center");
+			//$("body").css("text-align", "center");
 			$("#title > h2").text("New title");
 			$(".subtitle-box").css("background-color", "#f2ffe6");
 			//$(".temp").hide();
@@ -93,6 +110,23 @@
 
 			$(".used-box").click(function(e) {
 
+			});
+		});
+
+		$(document).ready(function() {
+			$("#submit-button").mouseenter(function() {
+				$(this).text("You're ready to click.");
+			});
+			$("#submit-button").mouseleave(function() {
+				$(this).text("Click");
+			});
+			var counter = 3;
+			$("#submit-button").click(function() {
+				counter++;
+				$("#first-list").append("<li> Reason " + counter + " </li>");
+			});
+			$("#submit-button").click(function() {
+				console.log($(this).parent());
 			});
 		});
 
