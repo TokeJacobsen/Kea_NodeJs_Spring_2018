@@ -1,6 +1,9 @@
 $(document).ready(function() {
-    $.get( "path....", function(data) {
-        console.log( "Data Loaded: " + data );
+    $.get( "get-users", function(data) {
+        var playerOne = data.players[0];
+        var playerTwo = data.players[1];
+        $(".player1-name").text(playerOne.nickname);
+        $(".player2-name").text(playerTwo.nickname);
       });
 });
 
@@ -13,15 +16,18 @@ $("form").submit(function(event) {
     var data = {
             "playerId": playerId,
             "choosenNickname": chosenNickname
-    }
+    };
 
     $.ajax({
         type: "POST",
         url: "register-user",
         data: data
       }).done(function(response) {
-              // todo remove the input field data after successful post request response
-          console.log(response);
+        $(".chosen-nickname").val("");
+            var playerOne = response.players[0];
+            var playerTwo = response.players[1];
+            $(".player1-name").text(playerOne.nickname);
+            $(".player2-name").text(playerTwo.nickname);
       });
 });
 

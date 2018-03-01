@@ -21,11 +21,24 @@ app.get("/", function(req, res) {
 
 
 // todo create a get request that gives us the players.... 
-
+app.get("/get-users", function(req, res) {
+    var response = {"status": 200, players: []};
+    response.players.push(player1);
+    response.players.push(player2);
+    res.json(response);
+});
 
 app.post("/register-user", function(req, res) {
-    console.log(req.body);
-    res.json(req.body);
+    if (req.body.playerId === "1") {
+        player1.nickname = req.body.choosenNickname;
+    }
+    if (req.body.playerId === "2") {
+        player2.nickname = req.body.choosenNickname;
+    }
+    var response = {"status": 200, players: []};
+    response.players.push(player1);
+    response.players.push(player2);
+    res.json(response);
 });
 
 
