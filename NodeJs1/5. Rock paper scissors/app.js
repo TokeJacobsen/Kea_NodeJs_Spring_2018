@@ -44,13 +44,17 @@ app.post("/register-user", function(req, res) {
 
 app.get("/get-results", function(req, res) {
     var response = {"status": 200};
+                                    // player1.choice, player2.choice
+    var winner = rockScissorsPaperLogic("rock", "scissors");
     response.message = "Maybe you won or maybe you lost";
     res.json(response);
 });
 
+/* @return 0 means draw, 1 means player 1 won and 2 means player 2 won */
 function rockScissorsPaperLogic(player1Choice, player2Choice) {
-    
-    return 1; // 2 depending on who the winner is
+
+    // THIS IS WRONG!!!
+    return Math.floor(Math.random() * Math.floor(3)); // Returning a random number 0, 1, 2... I expect the students to implement the logic
 }
 
 var server = app.listen("3000", function(err) {
