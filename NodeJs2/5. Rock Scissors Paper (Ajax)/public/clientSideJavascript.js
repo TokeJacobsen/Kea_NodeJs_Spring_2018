@@ -33,7 +33,8 @@ $(document).ready(function() {
             $(".playerTwo-name").text(playerTwo.nickname);
             $(".chosen-nickname").val("");
         });
-          
-
     });
+
+    
+
 });
