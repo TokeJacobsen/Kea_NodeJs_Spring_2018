@@ -20,13 +20,26 @@ app.get("/", function(req, res) {
 
 
 
-// 2 todo create a new get request called /get-users .. should return a json response with an array of players
+app.get("/get-users", function(req, res) {
+    var response = {"status": 200, players: []};
+    response.players.push(playerOne);
+    response.players.push(playerTwo);
+    res.json(response);
+});
 
 
 app.post("/register-user", function(req, res) {
-    console.log(req.body);
-    // 1 todo update the player object.. if playerOne update player 1 if playerTwo then 2
-    res.json(req.body);
+    var response = {"status": 200, players: []};
+
+    if (req.body.playerId === "1") {
+        playerOne.nickname = req.body.chosenNickname;
+    }
+    if (req.body.playerId === "2") {
+        playerTwo.nickname = req.body.chosenNickname;
+    }
+    response.players.push(playerOne);
+    response.players.push(playerTwo);
+    res.json(response);
 });
 
 

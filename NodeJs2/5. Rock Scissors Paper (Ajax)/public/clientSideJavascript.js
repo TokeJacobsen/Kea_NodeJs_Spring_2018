@@ -1,8 +1,12 @@
 $(document).ready(function() {
 
-    $.get( "get-users", function( data ) {
-        console.log( "Data Loaded: " + data );
-        // 3 todo take the data and update the player elements
+    $.get("get-users", function(response) {
+        var players = response.players;
+        var playerOne = players[0];
+        var playerTwo = players[1];
+        $(".playerOne-name").text(playerOne.nickname);
+        $(".playerTwo-name").text(playerTwo.nickname);
+        $(".chosen-nickname").val("");
     });
 
 
@@ -22,7 +26,12 @@ $(document).ready(function() {
             url: "register-user",
             data: data,
         }).done(function(response) {
-            console.log(response);
+            var players = response.players;
+            var playerOne = players[0];
+            var playerTwo = players[1];
+            $(".playerOne-name").text(playerOne.nickname);
+            $(".playerTwo-name").text(playerTwo.nickname);
+            $(".chosen-nickname").val("");
         });
           
 
