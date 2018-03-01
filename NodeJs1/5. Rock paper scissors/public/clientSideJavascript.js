@@ -24,10 +24,10 @@ $("form").submit(function(event) {
         data: data
       }).done(function(response) {
         $(".chosen-nickname").val("");
-            var playerOne = response.players[0];
-            var playerTwo = response.players[1];
-            $(".player1-name").text(playerOne.nickname);
-            $(".player2-name").text(playerTwo.nickname);
+        var playerOne = response.players[0];
+        var playerTwo = response.players[1];
+        $(".player1-name").text(playerOne.nickname);
+        $(".player2-name").text(playerTwo.nickname);
       });
 });
 
