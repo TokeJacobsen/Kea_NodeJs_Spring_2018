@@ -1,9 +1,11 @@
-// $("form").submit(function(event) {
-//     event.preventDefault();
-//     console.log("form submitted");
-// });
+$(document).ready(function() {
+    $.get( "path....", function(data) {
+        console.log( "Data Loaded: " + data );
+      });
+});
 
-$(".form-button").click(function(event) {
+
+$("form").submit(function(event) {
     event.preventDefault();
     var playerId = $(".player-selection").val();
     var chosenNickname = $(".chosen-nickname").val();
@@ -18,9 +20,11 @@ $(".form-button").click(function(event) {
         url: "register-user",
         data: data
       }).done(function(response) {
+              // todo remove the input field data after successful post request response
           console.log(response);
       });
 });
+
 
 $(document).ready(function() {
     setInterval(function() {
