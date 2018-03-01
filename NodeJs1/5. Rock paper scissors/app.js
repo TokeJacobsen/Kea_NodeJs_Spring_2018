@@ -10,8 +10,8 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 
-var player1 = {"playerId": 1, "nickname": ""};
-var player2 = {"playerId": 2, "nickname": ""};
+var player1 = {"playerId": 1, "nickname": "", choice: ""};
+var player2 = {"playerId": 2, "nickname": "", choice: ""};
 
 
 app.get("/", function(req, res) {
@@ -48,6 +48,10 @@ app.get("/get-results", function(req, res) {
     res.json(response);
 });
 
+function rockScissorsPaperLogic(player1Choice, player2Choice) {
+    
+    return 1; // 2 depending on who the winner is
+}
 
 var server = app.listen("3000", function(err) {
     if (err) {
