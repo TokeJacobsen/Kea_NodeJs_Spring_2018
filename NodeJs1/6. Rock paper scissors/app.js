@@ -41,7 +41,7 @@ app.post("/register-user", function(req, res) {
     res.json(response);
 });
 
-// Ex. URL: choose/rock?playerId=1
+// Ex. URL: /choose/rock?playerId=1
 app.get("/choose/:choice", function(req, res) {
     console.log("This is the choice: ", req.params.choice);
     console.log("This is the player id: ", req.query.playerId);
