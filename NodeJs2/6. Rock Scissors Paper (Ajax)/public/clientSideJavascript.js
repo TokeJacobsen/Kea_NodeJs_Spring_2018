@@ -37,15 +37,25 @@ $(document).ready(function() {
         });
     });
 
+
     $(".icon-div").click(function(event) {
         event.preventDefault();
 
         var clickedIconName = $(this).attr("id");
         console.log(clickedIconName);
 
-        // ex. url /choose/rock?playerId=1
-        var url = "";
-        
+        if (playerId === "0") {
+            // inform the user that they havent registered yet
+        } else {
+            $(".icon-div").css("color", "black");
+
+            $(this).css("color", "yellow");
+
+            var url = "choose/" + clickedIconName + "?playerId=" + playerId;
+                // todo create a get request that connects to the server through the above URL
+
+        }
+
     });
     
     setInterval(function() {
