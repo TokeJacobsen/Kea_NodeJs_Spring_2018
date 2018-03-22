@@ -1,0 +1,16 @@
+{
+  "name": "database_interacting_api",
+  "version": "1.0.0",
+  "description": "Learning how to interact with the mysql database.",
+  "main": "bot.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Anders Latif",
+  "license": "MIT",
+  "dependencies": {
+    "knex": "^0.14.4",
+    "mysql2": "^1.5.3",
+    "objection": "^1.0.0"
+  }
+}
