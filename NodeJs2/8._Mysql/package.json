@@ -4,6 +4,11 @@
   "description": "Example of how to query mysql in Node.js",
   "main": "app.js",
   "scripts": {
+    "make-migration": "knex migrate:make name_of_the_migration",
+    "migrate": "knex migrate:latest",
+    "migrate-undo": "knex migrate:rollback",
+    "start": "node ./app.js",
+    "start-dev": "nodemon ./app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Anders Latif",
