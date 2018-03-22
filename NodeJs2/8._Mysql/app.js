@@ -29,8 +29,19 @@ const db = {
 app.post("/add-message", function(req, res) {
     let response = {};
 
-    response.status = 200;
-    res.send(response);
+    db.Message.query().insert({
+        "message": req.body.message
+    }).then(persistedMessage => {
+        response.status = 200;
+        response.message = persistedMessage;
+
+        res.send(response);
+    }).catch( err => {
+        response.status = 500;
+
+        res.send(response);
+    })
+
 });
 
 
@@ -38,10 +49,19 @@ app.post("/add-message", function(req, res) {
 app.get("/get-messages", function(req, res) {
     let response = {};
 
+    db.Message.query().select()
+    .then(messages => {
+        response.status = 200;
+        response.messages = messages;
 
+        res.send(response);
+    }).catch(err => {
+        response.status = 500;
+        response.errorMessage = "Error querying the database. Might be because the login credentials or wrong or that the database isn't running.";
 
-    response.status = 200;
-    res.send(response);
+        res.send(response);
+    });
+
 });
 
 const server = app.listen("3000", function(err) {
