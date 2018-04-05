@@ -122,6 +122,7 @@ app.post("/login", function(req, res) {
                 res.send(response);
             } else {
                 bcrypt.compare(req.body.password, foundUsers[0].password).then(function(res) {
+                    // need to change the res to some other name above.. 
                     if (res === true) {
                         response.status = 200;
                         res.send(response);
