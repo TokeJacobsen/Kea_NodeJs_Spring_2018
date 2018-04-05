@@ -1,0 +1,24 @@
+{
+  "name": "database_interacting_api",
+  "version": "1.0.0",
+  "description": "Learning how to interact with the mysql database.",
+  "main": "bot.js",
+  "scripts": {
+    "create-migration": "knex migrate:make replace_this_with_migration_name",
+    "migrate": "knex migrate:latest",
+    "migrate-undo": "knex migrate:rollback",
+    "start": "node ./app.js",
+    "start-dev": "nodemon ./app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Anders Latif",
+  "license": "MIT",
+  "dependencies": {
+    "bcrypt": "^1.0.3",
+    "body-parser": "^1.18.2",
+    "express": "^4.16.3",
+    "knex": "^0.14.4",
+    "mysql2": "^1.5.3",
+    "objection": "^1.0.0"
+  }
+}
