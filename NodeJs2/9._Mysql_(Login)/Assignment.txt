@@ -1,0 +1,11 @@
+Reuse the existing API that can interact with a mysql database.
+
+Create a User entity model.
+
+Create a new migration that create a users table and sets up the necessary columns that you see fit (password is necessary since it should simulate a login).
+
+Create two post methods. 
+
+One is called /signup which will save the result in a mysql database. 
+
+The other is called /login which will retrieve the user and validate them against their password
