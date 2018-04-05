@@ -9,6 +9,9 @@ app.use(bodyParser.urlencoded({ extended: false }));
 // parse application/json
 app.use(bodyParser.json());
 
+const bcrypt = require('bcrypt');
+const saltRounds = 10;
+
 const objection = require("objection");
 const Model = objection.Model;
 const Knex = require("knex"); 
@@ -76,21 +79,22 @@ app.post("/signup", function(req, res) {
 
                 res.send(response);
             } else {
-                db.User.query().insert({
-                    "username": req.body.username,
-                    "password": req.body.password
-                }).then(persistedUser => {
-                    response.status = 200;
-                    response.message = "user created";
-
-                    res.send(response);
-                }).catch(err => {
-                    response.status = 500;
-                    response.errorMessage = "Error querying the database. Might be because the login credentials or wrong or that the database isn't running.";
-        
-                    res.send(response);
-                })
-         
+                bcrypt.hash(req.body.password, saltRounds).then(function(hash) {
+                    db.User.query().insert({
+                        "username": req.body.username,
+                        "password": hash
+                    }).then(persistedUser => {
+                        response.status = 200;
+                        response.message = "user created";
+    
+                        res.send(response);
+                    }).catch(err => {
+                        response.status = 500;
+                        response.errorMessage = "Error querying the database. Might be because the login credentials or wrong or that the database isn't running.";
+            
+                        res.send(response);
+                    });
+                });
             }
         }).catch(err => {
             response.status = 500;
@@ -112,10 +116,20 @@ app.post("/login", function(req, res) {
 
                 res.send(response);
             } else {
-                response.status = 200;
-                response.message = "user found";
+                bcrypt.compare(req.body.password, foundUsers[0].password).then(function(found) {
+                    if (found) {
+                        response.status = 200;
+                        response.message = "user found";
+        
+                        res.send(response);
+                    } else {
+                        response.status = 403;
+                        response.message = "user doesn't exist";
+                        
+                        res.send(response);
+                    }
+                });
 
-                res.send(response);
             }
         }).catch(err => {
             response.status = 500;
