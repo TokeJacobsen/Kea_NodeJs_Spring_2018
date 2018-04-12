@@ -108,7 +108,7 @@ app.post("/login", function(req, res) {
     let response = {};
     // SELECT * FROM users WHERE username = some_user_name;
 
-    db.User.query().select().where("username", req.body.username)
+    db.User.query().select().where("username", req.body.x)
         .then(foundUsers => {
             if (foundUsers.length === 0) {
                 response.status = 403;
