@@ -121,9 +121,8 @@ app.post("/login", function(req, res) {
                 response.message = "no such user found";
                 res.send(response);
             } else {
-                bcrypt.compare(req.body.password, foundUsers[0].password).then(function(res) {
-                    // need to change the res to some other name above.. 
-                    if (res === true) {
+                bcrypt.compare(req.body.password, foundUsers[0].password).then(function(equal) {
+                    if (equal === true) {
                         response.status = 200;
                         res.send(response);
                     } else {
