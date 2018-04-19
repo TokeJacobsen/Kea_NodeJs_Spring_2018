@@ -14,7 +14,15 @@
         <script>
             var socket = io.connect("http://localhost:3000");
             
-            // assignment console.log(the color when pressing the button)
+            $("#btnSend").click(function() {
+                let color = inputColor.value;
+                console.log(color);
+                socket.emit("this is the color", {"color": color});
+            });
+            
+            socket.on("change to this color", function(data) {
+                $("body").css({"background-color": data.color});
+            })
 
         </script>
 </body>
