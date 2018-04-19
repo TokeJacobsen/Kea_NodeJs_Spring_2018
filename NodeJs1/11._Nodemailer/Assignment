@@ -4,8 +4,8 @@ Requirement I want you to use:
 https://www.npmjs.com/package/nodemailer
 
 Hide your passwords for when you show me or others the solution.
-Password.js: module.myPassword = "password"; 
-App.js: var password = require("./passwords");
+password.js: module.myPassword = "password"; 
+app.js: var password = require("./password");
         console.log(password.myPassword);
 
 For this assignment you are allowed to authenticate using a plain-text password instead of OAuth2. If you are using gmail this requires you to temporarily allow less secure apps to send mails on your behalf. 
