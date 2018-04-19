@@ -1,8 +1,9 @@
-const express = require('express');
+const express = require("express");
 const app = express();
 
-const server = require('http').Server(app);
-let io = require("socket.io")(server);
+// create the sockets server
+const server = require("http").Server(app);
+const io = require("socket.io")(server);
 
 app.get("/", function(req, res) {
     res.sendFile(__dirname + "/index.html");
@@ -10,12 +11,11 @@ app.get("/", function(req, res) {
 
 io.on("connection", function(socket) {
     console.log("A client connected");
-
 });
 
-const expressServer = app.listen("3000", function(err) {
-    if (err) {
-        console.log(err);
-    }
-    console.log("Server is listening on port", expressServer.address().port);
+
+server.listen(3000, function() {
+    console.log("Server is listening on port 3000");
 });
+
+
